@@ -25,7 +25,7 @@ public class ProductManager {
         return productDAO.addProduct(product);
     }
 
-    public Product showProduct(String productId) {
-        return productDAO.showProduct(productId);
+    public Product getProduct(String productId) {
+        return productDAO.getProduct(productId);
     }
 }

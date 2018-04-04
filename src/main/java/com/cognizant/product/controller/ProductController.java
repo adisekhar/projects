@@ -40,11 +40,11 @@ public class ProductController {
 
     }
 
-    @RequestMapping(value = "/show/{productId}", method= RequestMethod.GET,
+    @RequestMapping(value = "/get/{productId}", method= RequestMethod.GET,
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity saveProduct(@PathVariable String productId) {
+    public ResponseEntity getProduct(@PathVariable String productId) {
 
-        Product product = productManager.showProduct(productId);
+        Product product = productManager.getProduct(productId);
         return  ResponseEntity.ok(product);
 
     }

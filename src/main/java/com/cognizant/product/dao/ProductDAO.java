@@ -17,17 +17,6 @@ public class ProductDAO {
     private static List<Product> listProduct = new ArrayList<Product>();
 
     public List<Product> getAllProducts() {
-       /* List<Product> productList = new ArrayList<>(2);
-        Product product = new Product();
-        product.setPrice(799);
-        product.setProductId("IPh");
-        product.setProductName("IPHONE 8");
-        productList.add(product);
-        product = new Product();
-        product.setPrice(750);
-        product.setProductId("SAM");
-        product.setProductName("SAMSUNG 8");
-        productList.add(product);*/
         return listProduct;
     }
 
@@ -36,10 +25,10 @@ public class ProductDAO {
         return  product;
     }
 
-    public Product showProduct(String productId) {
-        Optional<Product> showProduct = listProduct.stream().filter(p -> p.getProductId().equals(productId)).findFirst();
-        if(showProduct.isPresent()) {
-            return showProduct.get();
+    public Product getProduct(String productId) {
+        Optional<Product> product = listProduct.stream().filter(p -> p.getProductId().equals(productId)).findFirst();
+        if(product.isPresent()) {
+            return product.get();
         } else {
             return null;
         }
