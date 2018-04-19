@@ -18,19 +18,20 @@ import java.util.concurrent.TimeoutException;
  * Created by adisekhar on 3/29/18.
  */
 @RestController
+@RequestMapping(value="/products")
 public class ProductController {
 
     @Autowired
     private ProductManager productManager;
 
-    @RequestMapping(value="/list", method= RequestMethod.GET,
+    @RequestMapping(method= RequestMethod.GET,
     produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity getProducts() {
 
         return ResponseEntity.ok( productManager.getProducts());
     }
 
-    @RequestMapping(value = "/add", method= RequestMethod.POST,
+    @RequestMapping(method= RequestMethod.POST,
     produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
     consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity saveProduct(@RequestBody Product product) {
@@ -40,7 +41,7 @@ public class ProductController {
 
     }
 
-    @RequestMapping(value = "/get/{productId}", method= RequestMethod.GET,
+    @RequestMapping(value = "/{productId}", method= RequestMethod.GET,
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity getProduct(@PathVariable String productId) {
 

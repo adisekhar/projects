@@ -6,19 +6,33 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by adisekhar on 3/29/18.
  */
 @XmlRootElement
-public class Product {
+public class Catalog {
 
-    private Integer productId;
+    private String productId;
+
+    private String skuid;
+
+    private String brand;
+
+    private String ratings;
 
     private String productName;
 
     private double price;
 
-    public Integer getProductId() {
+    private Specification specification;
+
+    private Warranty warranty;
+
+    private Questions questions;
+
+    private String productOverview;
+
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
